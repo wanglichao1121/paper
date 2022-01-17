@@ -1,18 +1,26 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import {surveyItem,fetchSurveyList} from '@/util'
+import { ref } from 'vue'
+//import {List,ListItem} from 'ant-design-vue'
 
-@Options({
-  components: {
-    HelloWorld,
+export default {
+  setup(){
+    const surveyList=ref<surveyItem[]>([])
+    const getSurveyList=async()=>{
+      surveyList.value=await fetchSurveyList();
+    }
+    return {
+      surveyList,
+      getSurveyList
+    }
   },
-})
-export default class Home extends Vue {}
+  components:{
+    //Button
+  }
+}
 </script>
