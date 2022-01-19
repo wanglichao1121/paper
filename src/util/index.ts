@@ -1,27 +1,12 @@
-export interface surveyItem{
-    id: string,
-    name: string
-}
-export interface problemItem{
-    desc: string,
-    choices: string[]
-}
-export async function fetchSurveyList(): Promise<surveyItem[]>{
-    return [{
-        id: "basic",
-        name: "基础题库"
-    },{
-        id: "history",
-        name: "泰拉历史"
-    }
-    ]
-}
-export async function fetchSurveyContent(id:string): Promise<problemItem[]>{
-    return [{
-        desc: "1+1=?",
-        choices: ["1","2","3","4"]
-    },{
-        desc: "1+2=?",
-        choices: ["5","2","3","4"]
-    }]
+import { paperListResponse } from "@/interface";
+
+const BASE_URL='http://127.0.0.1:4523/mock/581392/'
+
+export async function fetchPaperList(): Promise<paperListResponse>{
+    const paperListPath='paper-list.php'
+    const res=await fetch(BASE_URL+paperListPath)
+    if(res.ok===false)
+        throw new Error("连接异常")
+    const content=await res.json();
+    return content;
 }

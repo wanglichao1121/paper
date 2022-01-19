@@ -1,26 +1,48 @@
 <template>
-  <router-view/>
+  <div class="root">
+    <router-view class="main-content column"/>
+    <Sidebar class="sidebar column"/>
+  </div>
 </template>
+<script lang="ts">
+import Sidebar from '@/components/Sidebar.vue'
+export default {
+  components: {
+    Sidebar
+  }
+}
+</script>
+
 
 <style lang="scss">
-#app {
+body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  background-color: #E7E8E8;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.root {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+}
+.column {
+  flex-direction: column;
+}
+.main-content {
+  flex: 2 0 auto;
+}
+.sidebar {
+  flex: 1 0 auto;
+}
+.main-card {
+  margin: 12px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px;
 }
 </style>
