@@ -1,10 +1,7 @@
 <template>
   <div v-if="curStep==0">
     <div class="main-card">
-      <div id="banner">
-        <p class="banner-group" id="title">请选择连接测试</p>
-        <p class="banner-group" id="subtitle">欢迎来到明日方舟</p>
-      </div>
+      <img src="@/assets/banner.png" style="width: 100%;"/>
     </div>
     <div class="main-card">
       <CategoryShow @selectPaper="handleSelect" v-for="(c,index) in categoryList" :data="c" :key="index"/>
@@ -57,34 +54,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-#banner {
-  background-image: url('../assets/banner.png');
-  background-repeat: no-repeat;
-  background-position: center 0%;
-  width: 100%;
-  height: 250px;
-  border-radius: 8px;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-.banner-group{
-  margin: 8px;
-  margin-left: 6%;
-}
-#title{
-  font-family: 'Noto Sans SC';
-  font-size: 48px;
-}
-#subtitle{
-  font-family: 'Noto Sans SC';
-  font-size: 20px;
-}
-#icon{
-  width: 6%;
-}
-</style>
