@@ -44,14 +44,12 @@ export default {
     margin-right: 25px;
     margin-bottom: 15px;
     flex-direction: row;
-    img {
-        margin: 8px;
-    }
+    padding: 8px;
     h3 {
         transition: 0.3s background-color ease;
         margin: 8px;
         white-space: nowrap;
-        line-height: 42px;
+        line-height: 28px;
         //font-weight: bold;
     }
     &:hover {

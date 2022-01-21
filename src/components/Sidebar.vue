@@ -3,8 +3,8 @@
     <div class="main-card">
       <MyTitle text="测试流程"/>
       <Steps id="steps" direction="vertical">
-        <Step title="选择测试卷" description="文案"></Step>
-        <Step title="选择专长方向" description="文案"></Step>
+        <Step title="选择测试" description="文案"></Step>
+        <Step title="选择专长" description="文案"></Step>
         <Step title="完成测试" description="文案"></Step>
       </Steps>
     </div>
