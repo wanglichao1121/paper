@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="main-card">
-      hello
+      <CategoryShow v-for="(c,index) in categoryList" :data="c" :key="index"/>
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@
 import {fetchPaperList} from '@/util'
 import { onMounted, ref } from 'vue'
 import { categoryItem } from '@/interface'
+import CategoryShow from '@/components/CategoryShow.vue'
 //import {List,ListItem} from 'ant-design-vue'
 
 export default {
@@ -30,7 +31,7 @@ export default {
     }
   },
   components:{
-    //Button
+    CategoryShow
   }
 }
 </script>

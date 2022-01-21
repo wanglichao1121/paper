@@ -31,10 +31,12 @@ body {
   flex-direction: column;
 }
 .main-content {
-  flex: 2 0 auto;
+//  flex: 2 0 auto;
+  width: 70%;
 }
 .sidebar {
-  flex: 1 0 auto;
+//  flex: 1 0 auto;
+  width: 30%;
 }
 .main-card {
   margin: 12px;

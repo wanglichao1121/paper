@@ -8,11 +8,15 @@
         <Step title="完成测试" description="文案"></Step>
       </Steps>
     </div>
+    <div class="main-card">
+      <MyTitle text="试题列表"/>
+      todo
+    </div>
   </div>
 </template>
 <script lang="ts">
 import {Steps} from 'ant-design-vue'
-import MyTitle from '@/components/Title.vue'
+import MyTitle from '@/components/MyTitle.vue'
 export default {
   components: {
     Steps,
@@ -21,11 +25,3 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-#steps {
-  height: 300px;
-}
-</style>
-
-<style lang="scss" scoped>
-</style>
