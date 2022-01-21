@@ -10,18 +10,29 @@
     </div>
     <div class="main-card">
       <MyTitle text="试题列表"/>
-      todo
+      <Empty description="请先选择测试" :image="simpleImage"/>
     </div>
   </div>
 </template>
 <script lang="ts">
-import {Steps} from 'ant-design-vue'
+import {Steps,Empty} from 'ant-design-vue'
 import MyTitle from '@/components/MyTitle.vue'
 export default {
+  setup(){
+    return {
+      simpleImage: Empty.PRESENTED_IMAGE_SIMPLE
+    }
+  },
   components: {
     Steps,
     Step: Steps.Step,
-    MyTitle
+    MyTitle,
+    Empty
   }
 }
 </script>
+<style lang="scss" scoped>
+.empty {
+  color: lightgray;
+}
+</style>
