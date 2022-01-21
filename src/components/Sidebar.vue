@@ -2,7 +2,7 @@
   <div class="sidebar">
     <div class="main-card">
       <MyTitle text="测试流程"/>
-      <Steps id="steps" direction="vertical">
+      <Steps id="steps" direction="vertical" :current="curStep">
         <Step title="选择测试" description="文案"></Step>
         <Step title="选择专长" description="文案"></Step>
         <Step title="完成测试" description="文案"></Step>
@@ -17,9 +17,13 @@
 <script lang="ts">
 import {Steps,Empty} from 'ant-design-vue'
 import MyTitle from '@/components/MyTitle.vue'
+import { useStore } from 'vuex'
+import { computed } from '@vue/runtime-core'
 export default {
   setup(){
+    const store=useStore()
     return {
+      curStep: computed(()=>store.state.paperSelection.curStep),
       simpleImage: Empty.PRESENTED_IMAGE_SIMPLE
     }
   },

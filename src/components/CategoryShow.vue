@@ -1,14 +1,14 @@
 <template>
     <MyTitle :text="title"/>
     <div class="cagegory-paper-list">
-        <div v-for="(item,index) in items" :key="index" class="cagetory-paper-item">
+        <div v-for="(item,index) in items" :key="index" class="cagetory-paper-item" @click="handleClick(item)">
             <img :src="item.icon"/>
             <h3>{{item.title}}</h3>
         </div>
     </div>
 </template>
 <script lang="ts">
-import { categoryItem } from '@/interface'
+import { categoryItem, paperItem } from '@/interface'
 import { PropType } from '@vue/runtime-core'
 import MyTitle from '@/components/MyTitle.vue'
 export default {
@@ -19,10 +19,14 @@ export default {
             required: true
         }
     },
-    setup(props){
+    emits: ['selectPaper'],
+    setup(props,{emit}){
         return {
             title: props.data.category,
-            items: props.data.papers
+            items: props.data.papers,
+            handleClick: (item: paperItem)=>{
+                emit("selectPaper",item);
+            }
         }
     }
 }
