@@ -9,9 +9,9 @@
 </template>
 <script lang="ts">
 import { categoryItem, paperItem } from '@/interface'
-import { PropType } from '@vue/runtime-core'
+import { defineComponent, PropType } from '@vue/runtime-core'
 import MyTitle from '@/components/MyTitle.vue'
-export default {
+export default defineComponent({
   components: { MyTitle },
     props: {
         data: {
@@ -29,7 +29,7 @@ export default {
             }
         }
     }
-}
+})
 </script>
 <style lang="scss" scoped>
 .cagegory-paper-list {

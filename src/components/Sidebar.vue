@@ -1,16 +1,16 @@
 <template>
   <div class="sidebar">
     <div class="main-card">
-      <MyTitle text="测试流程"/>
-      <Steps id="steps" direction="vertical" :current="curStep">
-        <Step title="选择测试" description="文案"></Step>
-        <Step title="选择专长" description="文案"></Step>
-        <Step title="完成测试" description="文案"></Step>
-      </Steps>
+      <my-title text="测试流程"/>
+      <steps id="steps" direction="vertical" :current="curStep">
+        <step title="选择测试" description="文案"></step>
+        <step title="选择专长" description="文案"></step>
+        <step title="完成测试" description="文案"></step>
+      </steps>
     </div>
-    <div class="main-card">
-      <MyTitle text="试题列表"/>
-      <Empty description="请先选择测试" :image="simpleImage"/>
+    <div v-if="curStep==2" class="main-card">
+      <my-title text="试题列表"/>
+      <empty description="请先选择测试" :image="simpleImage"/>
     </div>
   </div>
 </template>
@@ -18,8 +18,8 @@
 import {Steps,Empty} from 'ant-design-vue'
 import MyTitle from '@/components/MyTitle.vue'
 import { useStore } from 'vuex'
-import { computed } from '@vue/runtime-core'
-export default {
+import { computed, defineComponent } from '@vue/runtime-core'
+export default defineComponent({
   setup(){
     const store=useStore()
     return {
@@ -33,9 +33,10 @@ export default {
     MyTitle,
     Empty
   }
-}
+})
 </script>
 <style lang="scss" scoped>
+$theme-color:rgb(237,125,49);
 .empty {
   color: lightgray;
 }

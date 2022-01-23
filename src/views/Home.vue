@@ -1,37 +1,51 @@
 <template>
   <div v-if="curStep==0">
     <div class="main-card">
-      <img src="@/assets/banner.png" style="width: 100%;"/>
+      <img src="@/assets/banner.png" class="full-width"/>
     </div>
     <div class="main-card">
-      <CategoryShow @selectPaper="handleSelect" v-for="(c,index) in categoryList" :data="c" :key="index"/>
+      <category-show @selectPaper="handleSelect" v-for="(c,index) in categoryList" :data="c" :key="index"/>
     </div>
   </div>
   <div v-else class="main-card">
-    <PageHeader
-      :title="selectedPaper?.title"
-      :sub-title="selectedPaper?.desc"
-      @back="goback"
-      style="width: 100%;border: 1px solid rgb(235, 237, 240)"/>
+    <div class="gray-border full-width">
+      <page-header
+        :title="selectedPaper?.title"
+        :sub-title="selectedPaper?.desc"
+        @back="goback"/>
+      <div id="select-content">
+        <h3>请选择你的专长方向:</h3>
+        <my-choice/>
+        <my-choice/>
+        <my-choice/>
+        <my-choice/>
+        <my-choice/>
+        <my-choice/>
+        <my-choice/>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { fetchPaperList } from '@/util'
-import { computed, onMounted, ref } from 'vue'
+import { computed, defineComponent, onMounted, ref } from 'vue'
 import { categoryItem, paperItem } from '@/interface'
 import CategoryShow from '@/components/CategoryShow.vue'
 import { useStore } from 'vuex'
 import { PageHeader } from 'ant-design-vue'
+import MyChoice from '@/components/MyChoice.vue'
 
 
-export default {
+export default defineComponent({
   setup(){
     const store=useStore()
     const categoryList=ref<categoryItem[]>([])
     const selectedPaper=ref<paperItem>()
     onMounted(async()=>{
       categoryList.value=await fetchPaperList();
+      //DEV::
+      selectedPaper.value=categoryList.value[0].papers[0];
     })
     const handleSelect=(payload:paperItem)=>{
       store.commit('nextStep')
@@ -50,7 +64,19 @@ export default {
   },
   components:{
     CategoryShow,
-    PageHeader
+    PageHeader,
+    MyChoice
+  }
+})
+</script>
+<style lang="scss" scoped>
+.gray-border{
+  border: 1px solid rgb(235, 237, 240);
+}
+#select-content {
+  padding: 30px;
+  h3 {
+    font-weight: bold;
   }
 }
-</script>
+</style>

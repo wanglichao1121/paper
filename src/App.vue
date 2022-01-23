@@ -1,7 +1,7 @@
 <template>
   <div class="root">
     <router-view class="main-content column"/>
-    <Sidebar class="sidebar column"/>
+    <sidebar class="sidebar column"/>
   </div>
 </template>
 <script lang="ts">
@@ -46,5 +46,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 25px;
+}
+.full-width {
+  width: 100%;
 }
 </style>
