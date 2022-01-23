@@ -10,11 +10,7 @@ export interface paperItem{
     desc?: string,
     icon: string,
     time: number,
-    select?: {
-        min: number,
-        max: number,
-        items: paperOption[]
-    }
+    select?: paperOption[]
 }
 export interface categoryItem{
     category: string,

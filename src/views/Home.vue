@@ -15,13 +15,7 @@
         @back="goback"/>
       <div id="select-content">
         <h3>请选择你的专长方向:</h3>
-        <my-choice/>
-        <my-choice/>
-        <my-choice/>
-        <my-choice/>
-        <my-choice/>
-        <my-choice/>
-        <my-choice/>
+        <my-choice v-for="(sel,selind) in selectedPaper?.select" :key="selind" :text="sel.name"/>
       </div>
     </div>
   </div>
@@ -46,6 +40,7 @@ export default defineComponent({
       categoryList.value=await fetchPaperList();
       //DEV::
       selectedPaper.value=categoryList.value[0].papers[0];
+      console.log(selectedPaper.value.select);
     })
     const handleSelect=(payload:paperItem)=>{
       store.commit('nextStep')

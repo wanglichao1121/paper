@@ -2,7 +2,7 @@
   <div @click="flipChecked" :class="{
       checked
     }">
-        <p>hello</p>
+        <p>{{text}}</p>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
-    props: ['value'],
+    props: ['value','text'],
     emits: ['update:value'],
     setup(props,{emit}) {
         const checked=ref<boolean>(props.value)
@@ -43,6 +43,9 @@ div {
     padding-left: 5%;
     &:hover{
         background-color: $theme-color
+    }
+    p{
+        margin: 0;
     }
 }
 .checked {
