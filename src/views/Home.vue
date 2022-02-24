@@ -24,7 +24,7 @@
 <script lang="ts">
 import { fetchPaperList } from '@/util'
 import { computed, defineComponent, onMounted, ref } from 'vue'
-import { categoryItem, paperItem } from '@/interface'
+import { categoryItem, paperItem } from '@/interface/paper'
 import CategoryShow from '@/components/CategoryShow.vue'
 import { useStore } from 'vuex'
 import { PageHeader } from 'ant-design-vue'

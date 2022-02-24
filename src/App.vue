@@ -1,14 +1,21 @@
 <template>
+  <background/>
   <div class="root">
-    <router-view class="main-content column"/>
+    <div class="main-content column" ref="maincard">
+      <card-header class="full-width"/>
+      <div align="center">hello</div>
+    </div>
     <sidebar class="sidebar column"/>
   </div>
 </template>
 <script lang="ts">
 import Sidebar from '@/components/Sidebar.vue'
+import Background from '@/components/Background.vue'
+import CardHeader from '@/components/CardHeader.vue'
+import { onMounted, provide, ref } from 'vue'
 export default {
   components: {
-    Sidebar
+    Sidebar,Background,CardHeader
   }
 }
 </script>

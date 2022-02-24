@@ -8,7 +8,7 @@
     </div>
 </template>
 <script lang="ts">
-import { categoryItem, paperItem } from '@/interface'
+import { categoryItem, paperItem } from '@/interface/paper'
 import { defineComponent, PropType } from '@vue/runtime-core'
 import MyTitle from '@/components/MyTitle.vue'
 export default defineComponent({

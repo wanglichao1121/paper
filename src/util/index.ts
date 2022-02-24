@@ -1,4 +1,4 @@
-import { paperListResponse } from "@/interface";
+import { paperListResponse } from "@/interface/paper";
 
 const BASE_URL='http://127.0.0.1:4523/mock/581392/'
 
